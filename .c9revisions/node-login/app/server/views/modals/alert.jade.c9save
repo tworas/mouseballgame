@@ -1,0 +1,1 @@
+{"ts":1354689205013,"silentsave":true,"restoring":false,"patch":[[{"diffs":[[1,"\n.modal-alert.modal.hide.fade\n    div.modal-header\n        button.close(data-dismiss='modal') x\n        h3\n    div.modal-body\n        p\n    div.modal-footer\n        button(data-dismiss=\"modal\")#ok.btn.btn-warning OK"]],"start1":0,"start2":0,"length1":0,"length2":215}]],"length":215}
