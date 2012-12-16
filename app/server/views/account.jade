@@ -1,0 +1,48 @@
+
+- user = typeof(udata) != 'undefined' ? udata : {}
+// przechowywanie userid po stronie klienta w ukrytym polu //
+input(type='hidden', value= user._id)#userId
+
+#account-form-container
+	form( method="post")#account-form.form-horizontal.well.span6
+		h1
+		p#sub1.subheading Proszę powiedzieć nam coś o sobie.
+		hr
+		fieldset
+			#name-cg.control-group
+				label.control-label(for='name-tf') Nazwa
+				.controls
+					input#name-tf.input-xlarge(type='text', name='name', value= user.name)
+			#email-cg.control-group
+				label.control-label(for='email-tf') Email
+				.controls
+					input#email-tf.input-xlarge(type='text', name='email', value= user.email)
+			#clist-cg.control-group
+				label.control-label(for='country-list') Lokalizacja
+				.controls
+					select#country-list(name='country')
+						each item in countries
+							option(selected=item.name == user.country)= item.name
+			hr
+			p#sub2.subheading
+			#user-cg.control-group
+				label.control-label(for='user-tf') Nazwa użytkownika
+				.controls
+					input#user-tf.input-xlarge.disabled(type='text', name='user', value= user.user)
+			#pass-cg.control-group
+				label.control-label(for='pass-tf') Haslo
+				.controls
+					input#pass-tf.input-xlarge(type='password', name='pass', value='')
+			.form-actions
+				button(type='button')#account-form-btn1.btn
+				button(type='submit')#account-form-btn2.btn
+
+// wyświetlania błędów formularza w niestandardowym oknie //
+
+include modals/form-errors
+
+script(src='/vendor/jquery.min.js')
+script(src='/vendor/jquery.form.js')
+script(src='/vendor/bootstrap-modal.js')
+script(src='/vendor/bootstrap-transition.js')
+script(src='/js/form-validators/accountValidator.js')
